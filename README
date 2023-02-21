@@ -1,0 +1,102 @@
+Yanxi Chen
+Yc3841
+2023/02/21
+OS
+2021.3.18f1
+Iphone XR 15.6.1
+Video for this project:
+https://youtu.be/E7yt7A0_kjQ
+
+Spaceship:
+
+Player Movement, Trash collection is implemented by PlayerMovement.cs script. If hit objects other than trash will cause life-1 and value-50. If collect trash, the trash will turn a color and disappear after 0.5 second. If touches a planet/moon/Satellites, or going out of bound, the screen will shake and health and value will decrease.
+
+Planet:
+
+The Planet is a sphere with Planet Texture with radius 25. The planet is rotating in it’s own axis using the script SelfRotation.cs. See conference for details about the texture.
+
+Orbital Belt:
+
+Semi-transparent material Torus made using ProBuilder. See reference.
+
+Moon Set:
+
+Each contains one moons and its trashes. Rotate around the planet with RotateAround.cs.
+
+Moons:
+
+6 moons at start. The moon is rotating by itself with SelfRotation.cs. The model used for the moon is linked in reference.
+
+Planetary Trash:
+
+8 Planetary Trashes at start. Rotate around the planet with RotateAround.cs. The Collider is a little larger than the model for convenience of collection. $50 each.
+
+The instantiate of trash is implemented in PlayerMovement.cs in OnCollisionEnter method.
+
+Lunar Trash:
+
+The moon trashes are rotating around the moon by RandomRotateAround.cs. The Collider is a little larger than the model for convenience of collection. $100 each.
+
+The instantiate of trash is implemented in PlayerMovement.cs in OnCollisionEnter method.
+
+Satellites：
+
+RandomRotateAround.cs rotate around the Planet with modified limitArea to change the speed. See reference for model.
+
+Bounding:
+
+Bound is created by Bound object which is an semi-transparent sphere, centered at the planet center and with radius of 70.
+
+Skybox:
+
+Introduction: [https://docs.unity3d.com/Manual/skyboxes-using.html](https://docs.unity3d.com/Manual/skyboxes-using.html)
+
+For the resource, please see reference.
+
+Lights:
+
+3 direction lights are there to light up the space! 
+
+1 spot light is attached in front of the spaceship. The rotation is done with SpotLightMove.cs script. However, the spotlight is able to work on the PC, on the iPhone it is blurred and can't see the moving.
+
+User UI:
+
+To avoid user control causing raycasting, public float frozenTime = 0.5f; is set to disabled raycasting while controlling.
+
+Boost script: BoostControll.cs
+
+TimeCounter: Timer.cs
+
+Score: inside playerMovement.cs
+
+LifeCount: Icon from asset store. Life modified in PlayerMovement.cs.
+
+Restart: RestartGame.cs. Press restart will restart the game even after you have finished one game.
+
+BackCamera: BackCamera.cs.
+
+Joystick: inside playerMovement.cs
+
+Win & Lose: inside playerMovement.cs
+
+Nielsen usability heuristics:
+	I made the joystick and button in a proper size so that player can control more easily and fluently. Feedbacks such as color changes, screen shaking, text information are given back to the player all along the game. At the same time, I disabled some part of the screen to avoid mistaken cause by recasting while using the UI. 
+
+Problem overcome:
+	The part of touching is the most difficult part for me. I spent a day figuring out how it works and debugging it.
+
+**Conference:**
+
+ProBuilder: [https://docs.unity3d.com/Packages/com.unity.probuilder@5.0/manual/index.html](https://docs.unity3d.com/Packages/com.unity.probuilder@5.0/manual/index.html)
+
+Planet Texture: [https://assetstore.unity.com/packages/2d/textures-materials/abstract/stylized-surface-floor-texture-192895](https://assetstore.unity.com/packages/2d/textures-materials/abstract/stylized-surface-floor-texture-192895)
+
+Skybox: [https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
+
+Moon model: [https://assetstore.unity.com/packages/3d/environments/stylized-planet-pack-full-148233](https://assetstore.unity.com/packages/3d/environments/stylized-planet-pack-full-148233)
+
+Life heart icon: [https://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676](https://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676)
+
+Satellites：[https://assetstore.unity.com/packages/3d/vehicles/space/magellan-98970](https://assetstore.unity.com/packages/3d/vehicles/space/magellan-98970)
+
+Joystick: [https://assetstore.unity.com/packages/tools/input-management/joystick-pack-107631](https://assetstore.unity.com/packages/tools/input-management/joystick-pack-107631)
